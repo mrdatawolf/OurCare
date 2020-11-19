@@ -8,6 +8,17 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ *
+ * Class User
+ * @property $name
+ * @property $email
+ * @property $password
+ * @property $pin_code
+ * @property $isValidPinCode
+ *
+ * @package App\Models
+ */
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -25,6 +36,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'pin_code'
     ];
 
     /**
@@ -37,6 +49,7 @@ class User extends Authenticatable
         'remember_token',
         'two_factor_recovery_codes',
         'two_factor_secret',
+        'pin-code'
     ];
 
     /**
@@ -56,4 +69,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function isValidPinCode($pinCode) {
+        $pinCode = (string) $pinCode;
+
+        return (!empty($this->pin_code) && $pinCode === $this->pin_code);
+    }
 }

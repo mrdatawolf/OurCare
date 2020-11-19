@@ -18,8 +18,12 @@ class Provider extends Component
     public $guardiansOfChild;
     public $guardiansOfChildIds = [];
     public $addGuardianId = 0;
+    public $displayClass;
+
+    public $listeners = ['showMain', 'hideMain'];
 
     public function mount() {
+        $this->displayClass = 'hide';
         $this->potentialGuardians = Parents::orderBy('id')->get();
         $this->children = Children::with(['payments', 'parents'])->get();
         foreach($this->children as $child) {
@@ -66,6 +70,14 @@ class Provider extends Component
 
         $this->guardiansOfChild = Parents::whereIn('id', $this->guardiansOfChildIds)->get();
         $this->potentialGuardians = Parents::whereNotIn('id', $this->guardiansOfChildIds)->get();
+    }
+
+    public function showMain() {
+        $this->displayClass = 'show';
+    }
+
+    public function hideMain() {
+        $this->displayClass = 'hide';
     }
 
 }

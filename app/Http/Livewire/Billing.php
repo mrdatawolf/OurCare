@@ -21,11 +21,15 @@ class Billing extends Component
     public $children;
     public $child;
     public $childName;
+    public $displayClass;
+
+    public $listeners = ['showMain', 'hideMain'];
 
     public function mount() {
         $this->children = Children::orderBy('last_name')->get();
         $this->activeMonth = Carbon::now();
         $this->activeMonthDifference = 0;
+        $this->displayClass = 'hide';
         $this->gatherChild();
         $this->gatherParents();
         $this->gatherPayments();
@@ -123,6 +127,14 @@ class Billing extends Component
 
     public function markUnPaid() {
         $this->isPaid = false;
+    }
+
+    public function showMain() {
+        $this->displayClass = 'show';
+    }
+
+    public function hideMain() {
+        $this->displayClass = 'hide';
     }
 
 
