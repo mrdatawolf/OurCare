@@ -1,12 +1,10 @@
 class PinLogin {
-    constructor({el, loginEndpoint, redirectTo, maxNumbers = Infinity}) {
+    constructor({el, maxNumbers = Infinity}) {
         this.el = {
             main: el,
             numPad: el.querySelector(".pin-login__numpad"),
             textDisplay: el.querySelector(".pin-login__text")
         };
-        this.loginEndpoint = loginEndpoint;
-        this.redirectTo = redirectTo;
         this.maxNumbers = maxNumbers;
         this.value = "";
 
@@ -40,7 +38,7 @@ class PinLogin {
                 this.value = this.value.substring(0, this.value.length - 1);
                 break;
             case "done":
-                this.attemptLogin();
+                this._attemptLogin();
                 break;
             default:
                 if (this.value.length < this.maxNumbers && !isNaN(key)) {
@@ -59,7 +57,8 @@ class PinLogin {
 
     _attemptLogin() {
         if(this.value.length > 0) {
-            
+            Livewire.emit('pinCodeCheck', this.value);
+            this.el.textDisplay.value = '';
         }
     }
 }

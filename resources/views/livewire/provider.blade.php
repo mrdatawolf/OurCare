@@ -1,6 +1,5 @@
 <div>
-    @livewire('pin-card')
-    <div class="card-columns">
+    <div class="card-columns {{ $displayClass }}">
         @if(empty($children))
             <div class="card">
                 <div class="card-body">
@@ -24,17 +23,11 @@
             </div>
         @endforeach
         @endif
-        <div class="card">
-            <div class="card-header">
-                <H2>Add User</H2>
-            </div>
-            <div class="card-body">
-                <button class="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500">Add User</button>
-            </div>
-        </div>
     </div>
+    <div class="{{ $displayClass }}">
     <hr><hr>
-    <div class="card">
+    </div>
+    <div class="card {{ $displayClass }}">
         <div class="card-header">
             <h2>New Kid</h2>
         </div>
@@ -57,10 +50,10 @@
             </ul>
 
             @if(empty($potentialGuardians))
-                No potential guardians found!
+                No potential parents found!
             @else
                 <select id="add-parent" name="add-parent" wire:model="addGuardianId">
-                    <option value="0"> - Add a guardian - </option>
+                    <option value="0"> - Add a parent - </option>
                     @foreach($potentialGuardians as $potentialGuardian)
                         <option value="{{ $potentialGuardian->id }}">{{ $potentialGuardian->last_name }}, {{ $potentialGuardian->first_name }}</option>
                     @endforeach
