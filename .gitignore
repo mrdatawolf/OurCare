@@ -13,3 +13,5 @@ yarn-error.log
 /database/db
 database/db/*
 .idea/
+
+*.sqlite3
