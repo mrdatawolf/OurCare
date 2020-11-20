@@ -17,7 +17,7 @@ class CreateSigninsTable extends Migration
             $table->id();
             $table->integer('children_id');
             $table->integer('signed_in');
-            $table->integer('signed_out');
+            $table->integer('signed_out')->nullable();
             $table->timestamps();
         });
     }

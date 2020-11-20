@@ -33,7 +33,7 @@ class Children extends Model
     }
 
     public function signins() {
-        return $this->belongsToMany(Signins::class);
+        return $this->hasMany(Signins::class);
     }
 
     public function billingRate() {
