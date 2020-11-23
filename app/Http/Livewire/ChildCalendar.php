@@ -10,38 +10,35 @@ use Carbon\Carbon;
 
 class ChildCalendar extends LivewireCalendar
 {
-    public $listeners = ['showMain', 'hideMain'];
-    public $displayClass = 'hide';
-
     public function events(): Collection
     {
         $signinData = [];
-        if($this->displayClass === 'show') {
-            $signins = Signins::with('children')->get();
-            foreach ($signins as $signin) {
-                $signedIn   = Carbon::createFromTimestamp($signin->signed_in);
-                $signedOut  = Carbon::createFromTimestamp($signin->signed_out);
-                $child      = Children::find($signin->children_id);
-                $totalHours = $signedIn->diffInHours($signedOut);
-                $id         = $signin->id;
-
-                $signinData[] = [
-                    'id'          => $id,
-                    'title'       => $child->first_name.' '.$child->last_name,
-                    'description' => 'Stayed for '.$totalHours.' hours.',
-                    'date'        => $signedIn
-                ];
+        $signins    = Signins::with('children')->get();
+        foreach ($signins as $signin) {
+            $signedIn     = Carbon::createFromTimestampMsUTC($signin->signed_in);
+            $signedOut    = Carbon::createFromTimestampMsUTC($signin->signed_out);
+            $child        = Children::find($signin->children_id);
+            $totalHours   = $signedIn->diffInHours($signedOut);
+            $id           = $signin->id;
+            if($totalHours < 24) {
+                $numberToShow = $totalHours;
+                $wording      = 'hours';
+            } elseif($totalHours < 720) {
+                $numberToShow = floor($totalHours / 24);
+                $wording      = 'days';
+            } else {
+                $numberToShow = floor($totalHours / 24 / 365);
+                $wording      = 'years';
             }
+
+            $signinData[] = [
+                'id'          => $id,
+                'title'       => $child->first_name.' '.$child->last_name,
+                'description' => 'Stayed for '.$numberToShow.' '.$wording.'.',
+                'date'        => $signedIn
+            ];
         }
 
         return collect($signinData);
-    }
-
-    public function showMain() {
-        $this->displayClass = 'show';
-    }
-
-    public function hideMain() {
-        $this->displayClass = 'hide';
     }
 }

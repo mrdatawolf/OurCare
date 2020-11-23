@@ -1,3 +1,9 @@
 .hide {
     display: none !important;
 }
+.child-signed-in {
+    background-color: #96CCBD !important;
+}
+.child-signed-out {
+    background-color: #B3C0F9 !important;
+}

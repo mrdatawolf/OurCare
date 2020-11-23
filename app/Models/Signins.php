@@ -25,7 +25,19 @@ class Signins extends Model
         'signed_out'
     ];
 
+    protected $dates = ['signed_in', 'signed_out'];
+
     public function children() {
         return $this->belongsTo(Children::class);
+    }
+
+
+    public function scopeNewestSignIn($query) {
+        return $query->sortBy('signed_in')->last();
+    }
+
+
+    public function scopeNewestSignOut($query) {
+        return $query->sortBy('signed_out')->last();
     }
 }
