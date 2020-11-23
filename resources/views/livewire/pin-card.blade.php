@@ -10,15 +10,11 @@
         </div>
     </div>
 
-    <div class="card-header {{ $mainClass }}">
-        Lock Billing
-    </div>
     <div class="card-body {{ $mainClass }}">
         <button wire:click="lock" class="bg-gray-200 appearance-none border-2 border-gray-200 rounded py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:border-purple-500"> Lock Page</button>
     </div>
 
     <script>
-
         if ( document.getElementById('mainNumpad').innerHTML === "") {
             new PinLogin({
                 el: document.getElementById('mainPinLogin'),

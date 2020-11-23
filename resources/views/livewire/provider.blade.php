@@ -10,7 +10,7 @@
         @foreach($children as $child)
             <div class="card">
                 <div class="card-header">
-                    <H1><span title="{{ json_encode($childrenGuardians[$child->id]) }}">{{ $child->first_name }}, {{ $child->last_name }}</span></H1>
+                    <H1><span title="{{ $guardians }}">{{ $child->first_name }}, {{ $child->last_name }}</span></H1>
                 </div>
                 <div class="card-body">
                     <div class="block border-indigo-400 border-2">

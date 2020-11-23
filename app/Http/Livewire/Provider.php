@@ -12,7 +12,7 @@ class Provider extends Component
     public $child;
     public $childId;
     public $childrenIds;
-    public $guardians = [];
+    public $guardians = '';
     public $potentialGuardians;
     public $childrenGuardians = [];
     public $guardiansOfChild;
@@ -29,6 +29,7 @@ class Provider extends Component
         foreach($this->children as $child) {
             foreach($child->parents as $parents) {
                 $this->childrenGuardians[$child->id][] = $parents->last_name.",".$parents->first_name;
+                $this->guardians .= " ; " . $parents->last_name.",".$parents->first_name;
             }
         }
     }
@@ -79,5 +80,4 @@ class Provider extends Component
     public function hideMain() {
         $this->displayClass = 'hide';
     }
-
 }
