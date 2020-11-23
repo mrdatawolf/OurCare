@@ -18,8 +18,16 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('signinout');
 })->name('dashboard');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/signin', function () {
+    return view('signinout');
+})->name('signin');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/signinout', function () {
+    return view('signinout');
+})->name('signinout');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/provider', function () {
     return view('provider');
