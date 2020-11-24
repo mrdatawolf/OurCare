@@ -132,8 +132,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+            <x-jet-responsive-nav-link href="{{ route('signinout') }}" :active="request()->routeIs(['signinout', 'signin', 'dashboard'])">
+                <span class="material-icons" title="Sign Children In/Out">add_task</span>
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('provider') }}" :active="request()->routeIs('provider')">
+                <span class="material-icons" title="Provider">supervisor_account</span>
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('childCalendar') }}" :active="request()->routeIs('childCalendar')">
+                <span class="material-icons" title="Calendar">event</span>
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('billing') }}" :active="request()->routeIs('billing')">
+                <span class="material-icons" title="Billing">account_balance</span>
             </x-jet-responsive-nav-link>
         </div>
 
