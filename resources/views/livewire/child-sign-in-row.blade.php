@@ -1,7 +1,7 @@
 <div>
     <div class="card">
         <div class="card-header {{ $signedInClass }}">
-            <H1 class="text-gray-900 font-bold"><span wire:click="flipChildCard" class="pin-login__key material-icons">{{ $child->avatar }}</span>{{ $child->last_name }}, {{ $child->first_name }}&nbsp;&nbsp;&nbsp;&nbsp;<span wire:click="flipSignIn" class="pin-login__key material-icons">{{ $circleTypeSignIn }}</span></H1>
+            <H1 class="text-gray-900 font-bold"><span wire:click="flipChildCard" class="pin-login__key material-icons">{{ $child->avatar }}</span>{{ $child->first_name }} {{ $child->last_name }}&nbsp;&nbsp;&nbsp;&nbsp;<span wire:click="flipSignIn" class="pin-login__key material-icons">{{ $circleTypeSignIn }}</span></H1>
         </div>
         <div class="card-body {{ $displayClass }}">
             <div class="block border-indigo-400 border-2">

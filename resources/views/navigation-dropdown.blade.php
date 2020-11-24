@@ -13,22 +13,22 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('signinout') }}" :active="request()->routeIs(['signinout', 'signin', 'dashboard'])">
-                        {{ __('Sign In / Out') }}
+                        <span class="material-icons" title="Sign Children In/Out">add_task</span>
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('provider') }}" :active="request()->routeIs('provider')">
-                        {{ __('Provider') }}
+                        <span class="material-icons" title="Provider">supervisor_account</span>
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('childCalendar') }}" :active="request()->routeIs('childCalendar')">
-                        {{ __('Child Calendar') }}
+                        <span class="material-icons" title="Calendar">event</span>
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('billing') }}" :active="request()->routeIs('billing')">
-                        {{ __('Billing') }}
+                        <span class="material-icons" title="Billing">account_balance</span>
                     </x-jet-nav-link>
                 </div>
             </div>
