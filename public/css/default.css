@@ -12,6 +12,8 @@
     background: rgba(0,0,0,.5) !important;
 }
 
+
+/* pin pad and also we use this for our general touchbuttons */
 .pin-login {
     display: inline-block;
     border-radius: 10px;
@@ -85,4 +87,37 @@
 @-moz-keyframes loginError {
     25% { transform: translateX(-3px);}
     75% { transform: translateX(3px);}
+}
+
+/* responise settings for the cards */
+@media (min-width: 34em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 75em) {
+    .card-columns {
+        -webkit-column-count: 5;
+        -moz-column-count: 5;
+        column-count: 5;
+    }
 }
