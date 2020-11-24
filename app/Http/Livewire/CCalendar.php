@@ -10,7 +10,7 @@ class CCalendar extends Component
     public $listeners = ['showMain', 'hideMain'];
 
     public function mount() {
-        $this->displayClass = 'show';
+        $this->displayClass = 'hide';
     }
 
     public function render()
