@@ -23,7 +23,7 @@ class Billing extends Component
     public $childName;
     public $displayClass;
 
-    public $listeners = ['showMain', 'hideMain'];
+    protected $listeners = ['showMain', 'hideMain'];
 
     public function mount() {
         $this->children = Children::orderBy('last_name')->get();
