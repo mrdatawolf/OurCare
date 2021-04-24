@@ -1,17 +1,26 @@
 .hide {
     display: none !important;
 }
+
 .child-signed-in {
     background-color: #96CCBD !important;
 }
+
 .child-signed-out {
     background-color: #B3C0F9 !important;
 }
 
 .disabled {
-    background: rgba(0,0,0,.5) !important;
+    background: rgba(0, 0, 0, .5) !important;
 }
 
+.material-icons, .billing {
+    color: #6875F5 !important;
+}
+
+.billing {
+
+}
 
 /* pin pad and also we use this for our general touchbuttons */
 .pin-login {
@@ -36,7 +45,7 @@
     font-size: 0.5em;
     text-align: center;
     letter-spacing: 0.2em;
-    background: rgba(0,0,0, 0.15);
+    background: rgba(0, 0, 0, 0.15);
     border: none;
     border-radius: 10px;
     outline: none;
@@ -52,7 +61,7 @@
 }
 
 .pin-login__key, .pin-login__key__small {
-    background: rgba(0,0,0, 0.15);
+    background: rgba(0, 0, 0, 0.15);
     color: #363b5e;
     border-radius: 50%;
     display: inline-flex;
@@ -76,17 +85,25 @@
 }
 
 .pin-login__key:active, .pin-login__key__small:active {
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25);
 }
 
 @keyframes loginError {
-    25% { transform: translateX(-3px);}
-    75% { transform: translateX(3px);}
+    25% {
+        transform: translateX(-3px);
+    }
+    75% {
+        transform: translateX(3px);
+    }
 }
 
 @-moz-keyframes loginError {
-    25% { transform: translateX(-3px);}
-    75% { transform: translateX(3px);}
+    25% {
+        transform: translateX(-3px);
+    }
+    75% {
+        transform: translateX(3px);
+    }
 }
 
 /* responise settings for the cards */
@@ -104,12 +121,12 @@
 
 @media (min-width: 992px) {
     .card-columns {
-        column-count: 4;
+        column-count: 2;
     }
 }
 
 @media (min-width: 1200px) {
     .card-columns {
-        column-count: 5;
+        column-count: 2;
     }
 }

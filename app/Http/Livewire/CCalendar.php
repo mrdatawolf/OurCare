@@ -7,7 +7,7 @@ use Livewire\Component;
 class CCalendar extends Component
 {
     public $displayClass;
-    public $listeners = ['showMain', 'hideMain'];
+    protected $listeners = ['showMain', 'hideMain'];
 
     public function mount() {
         $this->displayClass = 'hide';
